@@ -1,18 +1,8 @@
-Array.prototype.drop = function(val = 1) {
-  let newArr = null;
-  for (let i = 0; i <= this.length; i++) {
-    switch (val) {
-      case i:
-        newArr = this.slice(i);
-        break;
-      case 0:
-        newArr = this;
-        break;
+Array.prototype.drop = function (val = 1) {
+    for (let i = 0; i < val; i++) {
+       val == 0 ? this :  this.shift();
     }
-  }
-  if (val > this.length) return (newArr = []);
-  return newArr;
+  return this;
 };
 
-console.log(['oldest', 'older', 'old', 'new'].drop(2)); // drop ['oldest', 'older'] and return ['old', 'new']
-
+console.log(['oldest', 'older', 'old', 'new'].drop(1)); // drop ['oldest', 'older'] and return ['old', 'new']
